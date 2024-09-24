@@ -22,12 +22,12 @@ public class RuedaController {
         try {
             String[] datosVehiculo = ruedaService.validarPlaca(request);
             if (datosVehiculo == null) {
-                return new RuedaResponse("", "", 0, 0, "");
+                return new RuedaResponse("-", "-", 0, 0, "-");
             }
-            return new RuedaResponse(datosVehiculo[2], datosVehiculo[3], Integer.parseInt(datosVehiculo[4]), Double.parseDouble(datosVehiculo[5]),  datosVehiculo[6]);
+            return new RuedaResponse(datosVehiculo[0], datosVehiculo[1], Integer.parseInt(datosVehiculo[2]), Double.parseDouble(datosVehiculo[3]),  datosVehiculo[4]);
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return new RuedaResponse("", "", 0, 0,"");
+            return new RuedaResponse("Error", "Error", 0, 0,"Error");
         }
     }
     
